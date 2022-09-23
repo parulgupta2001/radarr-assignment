@@ -1,0 +1,57 @@
+.sidebar {
+  min-width: 10rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.5rem;
+  line-height: 1.4rem;
+  position: fixed;
+  left: 0;
+  height: fit-content;
+  padding: 5rem 1rem 1rem 1rem;
+  z-index: 3;
+  font-weight: var(--standard-font-weight);
+  background-color: var(--background-color-one);
+  border-radius: 0.5rem;
+}
+
+label,
+.filter-input {
+  display: inline;
+}
+
+.clear-btn {
+  font-weight: var(--standard-font-weight);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-two);
+  border: none;
+  color: var(--background-color-one);
+  border-radius: 6px;
+  padding: 0.2rem;
+  cursor: pointer;
+}
+
+.filter-header {
+  font-weight: bold;
+  padding-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.sorting {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5rem;
+}
+
+.product-rating {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.price-sorting {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}

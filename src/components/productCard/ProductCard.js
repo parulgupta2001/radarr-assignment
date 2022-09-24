@@ -3,18 +3,7 @@ import { useState, useEffect } from "react";
 import { AiTwotoneHeart } from "react-icons/ai";
 import axios from "axios";
 
-export function ProductCard() {
-  const [housesData, setHousesData] = useState([]);
-
-  useEffect(() => {
-    (async () => {
-      const res = await axios.get(
-        "https://www.anapioficeandfire.com/api/houses"
-      );
-      setHousesData(res.data);
-    })();
-  }, []);
-
+export function ProductCard({ housesData }) {
   return (
     <div className="main">
       {housesData.map(({ name, region }) => (

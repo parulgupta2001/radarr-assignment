@@ -1,0 +1,67 @@
+.authorization-page {
+  display: flex;
+  justify-content: center;
+  padding-top: 3rem;
+}
+
+.authorization-container {
+  display: flex;
+  width: 20rem;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 1rem;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+h2 {
+  margin-bottom: 0;
+}
+
+.login-container {
+  height: 24rem;
+}
+
+.authorization-container h2 {
+  padding-bottom: 2rem;
+}
+
+.input {
+  font-weight: var(--standard-font-weight);
+}
+
+.user-input {
+  width: 18rem;
+  height: 1.5rem;
+  border-radius: 6px;
+}
+
+.actual-btn {
+  background-color: var(--color-two);
+  color: var(--background-color-one);
+}
+
+.authorization-page-btn {
+  width: 18rem;
+  border-radius: 6px;
+  cursor: pointer;
+  height: 2rem;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: var(--standard-font-weight);
+}
+
+.testing-btn {
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.testing-btn:hover {
+  background-color: var(--background-color-three);
+}
+
+.submit-buttons {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1.5rem;
+  row-gap: 1rem;
+}

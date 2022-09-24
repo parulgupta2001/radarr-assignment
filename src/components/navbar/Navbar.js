@@ -2,24 +2,31 @@ import { FaShoppingCart } from "react-icons/fa";
 import { AiFillHeart, AiOutlineSearch } from "react-icons/ai";
 import { BiLogIn, BiLogOut } from "react-icons/bi";
 import { GiSwordman } from "react-icons/gi";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { logout } from "../../features/index";
 import "./navbar.css";
 
 export function Navbar() {
+  const { isLoggedIn } = useSelector((store) => store.auth);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   return (
     <>
       <nav className="navigation-bar">
         <div className="upper-nav">
-          <div className="log-out">
-            <BiLogOut className="log-out-icon" />
-            <div>Logout</div>
-          </div>
-
-          <div className="log-in">
-            <BiLogIn className="log-in-icon" />
-            <div>Login</div>
-          </div>
-
-          <div className="new-account">Create Account</div>
+          {isLoggedIn ? (
+            <div className="log-out">
+              <BiLogOut className="log-out-icon" />
+              <div onClick={() => dispatch(logout())}>Logout</div>
+            </div>
+          ) : (
+            <div className="log-in">
+              <BiLogIn className="log-in-icon" />
+              <div onClick={() => navigate("/login")}>Login</div>
+            </div>
+          )}
         </div>
         <div className="main-nav">
           <div className="logo-container">

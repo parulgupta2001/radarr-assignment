@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
+import "./pagination.css";
 
-export function Pagination({ housesPerPage, totalHouses, paginate }) {
+export function Pagination({ housesPerPage, totalHouses }) {
   const pageNumbers = [];
 
   for (let i = 1; i <= Math.ceil(totalHouses / housesPerPage); i++) {
@@ -8,24 +9,10 @@ export function Pagination({ housesPerPage, totalHouses, paginate }) {
   }
 
   return (
-    <div
-      className="pagination"
-      style={{
-        backgroundColor: "red",
-        margin: "0 2rem 0.5rem 3rem",
-        color: "white",
-      }}
-    >
+    <div className="pagination">
       {pageNumbers.map((number) => (
-        <div key={number}>
-          <Link
-            to={`/products/${number}`}
-            onClick={() => {
-              paginate(number);
-            }}
-          >
-            {number}
-          </Link>
+        <div key={number} className="pagination-number">
+          <Link to={`/products/${number}`}>{number}</Link>
         </div>
       ))}
     </div>

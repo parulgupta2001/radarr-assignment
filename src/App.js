@@ -11,7 +11,6 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/products" element={<ProductPage />} />
         <Route path="/products/:pageNumber" element={<ProductPage />} />
         <Route path="/login" element={<Login />} />
       </Routes>

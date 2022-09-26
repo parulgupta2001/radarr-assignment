@@ -41,7 +41,7 @@ export function Login() {
             className="testing-btn authorization-page-btn"
             onClick={() => {
               dispatch(login());
-              navigate("/products");
+              navigate("/products/1");
             }}
           >
             Login

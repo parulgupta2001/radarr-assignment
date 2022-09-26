@@ -1,0 +1,18 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  column-gap: 2rem;
+  padding: 1rem;
+  font-weight: bold;
+  border-top: 1px solid var(--border-color);
+}
+
+.pagination-number::after {
+  background-color: black;
+  border-radius: 50%;
+  width: 1.2rem;
+  height: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

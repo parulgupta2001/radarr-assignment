@@ -1,39 +1,49 @@
 import { ProductCard } from "../../components/productCard/ProductCard";
 import { Sidebar } from "../../components/sidebar/Sidebar";
 import { Pagination } from "../../components/pagination/Pagination";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { data } from "../../features/index";
 import axios from "axios";
 
 export function ProductPage() {
-  const pageNumber = useParams();
-  const [housesData, setHousesData] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
+  const { pageNumber } = useParams();
+  const { filteredData } = useSelector((store) => store.filter);
+  const [newHouseData, setNewHouseData] = useState([]);
+  const dispatch = useDispatch();
   const housesPerPage = 10;
 
-  console.log(pageNumber);
-
   useEffect(() => {
+    dispatch(data());
     (async () => {
-      const res = await axios.get(
-        "https://www.anapioficeandfire.com/api/houses?pageSize=50"
+      const response = await axios.get(
+        "https://api.unsplash.com/search/photos?page=1&query=mountains&client_id=D5BKggh_m2pgUB9QtR04IBeSH7e5rcCLMVsdnsbi6Ug&per_page=30"
       );
-      setHousesData(res.data);
+      const imageData = response.data.results;
+      let arr = [];
+      for (let i = 0; i < 30; i++) {
+        arr.push({
+          ...filteredData[i],
+          houseImage: imageData[i].urls.regular,
+        });
+      }
+      setNewHouseData(arr);
     })();
   }, []);
 
-  const indexOfLastCard = currentPage * housesPerPage;
+  const indexOfLastCard = pageNumber * housesPerPage;
   const indexOfFirstCard = indexOfLastCard - housesPerPage;
-  const currentCards = housesData.slice(indexOfFirstCard, indexOfLastCard);
-  console.log(currentCards);
-
-  const paginate = (number) => setCurrentPage(number);
+  let currentCards;
+  if (newHouseData?.length !== 0) {
+    currentCards = newHouseData?.slice(indexOfFirstCard, indexOfLastCard);
+  }
 
   return (
     <>
       <div className="product-container">
         <Sidebar />
-        <ProductCard housesData={currentCards} />
+        {currentCards && <ProductCard housesData={currentCards} />}
       </div>
       <Pagination
         style={{
@@ -42,8 +52,7 @@ export function ProductPage() {
           padding: "0 4rem 0 4rem",
         }}
         housesPerPage={housesPerPage}
-        totalHouses={housesData.length}
-        paginate={paginate}
+        totalHouses={30}
       />
     </>
   );

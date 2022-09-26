@@ -52,11 +52,12 @@ h2 {
 }
 
 .testing-btn {
-  background-color: rgba(0, 0, 0, 0.25);
+  color: var(--background-color-one);
+  background-color: var(--color-two);
 }
 
 .testing-btn:hover {
-  background-color: var(--background-color-three);
+  background-color: #3bb2f6;
 }
 
 .submit-buttons {

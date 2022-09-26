@@ -23,6 +23,7 @@ const filterSlice = createSlice({
     sort: (state, action) => {
       state.sortOrder = action.payload;
       state.filteredData = getSortedData(state);
+      console.log(state.sortOrder);
     },
 
     houseRating: (state, action) => {

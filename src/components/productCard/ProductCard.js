@@ -1,10 +1,7 @@
 import "./productCard.css";
-import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
-import { AiTwotoneHeart } from "react-icons/ai";
-import axios from "axios";
 
-export function ProductCard({ housesData, pageNumber }) {
+export function ProductCard({ housesData }) {
+  console.log(housesData);
   return (
     <div className="main">
       {housesData.map(({ name, region, houseImage }) => (

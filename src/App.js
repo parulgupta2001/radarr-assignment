@@ -1,9 +1,7 @@
 import "./App.css";
-import { LandingPage } from "./pages/landingPage/LandingPage";
-import { Navbar } from "./components/navbar/Navbar";
+import { LandingPage, ProductPage, Login } from "./pages/index";
+import { Navbar } from "./components/index";
 import { Route, Routes } from "react-router-dom";
-import { ProductPage } from "./pages/productPage/ProductPage";
-import { Login } from "./pages/login/Login";
 
 function App() {
   return (

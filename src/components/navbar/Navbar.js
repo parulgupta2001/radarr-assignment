@@ -1,5 +1,3 @@
-import { FaShoppingCart } from "react-icons/fa";
-import { AiFillHeart, AiOutlineSearch } from "react-icons/ai";
 import { BiLogIn, BiLogOut } from "react-icons/bi";
 import { GiSwordman } from "react-icons/gi";
 import { useSelector, useDispatch } from "react-redux";

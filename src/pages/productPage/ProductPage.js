@@ -1,6 +1,4 @@
-import { ProductCard } from "../../components/productCard/ProductCard";
-import { Sidebar } from "../../components/sidebar/Sidebar";
-import { Pagination } from "../../components/pagination/Pagination";
+import { ProductCard, Sidebar, Pagination } from "../../components/index";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -16,6 +14,9 @@ export function ProductPage() {
 
   useEffect(() => {
     dispatch(data());
+  }, []);
+
+  useEffect(() => {
     (async () => {
       const response = await axios.get(
         "https://api.unsplash.com/search/photos?page=1&query=mountains&client_id=D5BKggh_m2pgUB9QtR04IBeSH7e5rcCLMVsdnsbi6Ug&per_page=30"
@@ -30,7 +31,7 @@ export function ProductPage() {
       }
       setNewHouseData(arr);
     })();
-  }, []);
+  }, [filteredData]);
 
   const indexOfLastCard = pageNumber * housesPerPage;
   const indexOfFirstCard = indexOfLastCard - housesPerPage;
